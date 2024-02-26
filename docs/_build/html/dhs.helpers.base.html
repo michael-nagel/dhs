@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.helpers.base package &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6efca38a"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dhs.utils package" href="dhs.utils.html" />
+    <link rel="prev" title="dhs.helpers package" href="dhs.helpers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dhs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dhs.html">dhs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dhs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="dhs.helpers.html">dhs.helpers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html">dhs.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.plot_marg_dens">dhs.plot_marg_dens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_dhs_example">dhs.run_dhs_example module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_first_simul">dhs.run_first_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_hyperparam_sens">dhs.run_hyperparam_sens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_real_data">dhs.run_real_data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_second_simul">dhs.run_second_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">dhs</a></li>
+          <li class="breadcrumb-item"><a href="dhs.html">dhs package</a></li>
+          <li class="breadcrumb-item"><a href="dhs.helpers.html">dhs.helpers package</a></li>
+      <li class="breadcrumb-item active">dhs.helpers.base package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dhs.helpers.base.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dhs-helpers-base-package">
+<h1>dhs.helpers.base package<a class="headerlink" href="#dhs-helpers-base-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-dhs.helpers.base.plot_params">
+<span id="dhs-helpers-base-plot-params-module"></span><h2>dhs.helpers.base.plot_params module<a class="headerlink" href="#module-dhs.helpers.base.plot_params" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.helpers.base.plot_params.PlotParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.helpers.base.plot_params.</span></span><span class="sig-name descname"><span class="pre">PlotParams</span></span><a class="reference internal" href="_modules/dhs/helpers/base/plot_params.html#PlotParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.plot_params.PlotParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.helpers.base.plot_params.PlotParams.font_scalings">
+<span class="sig-name descname"><span class="pre">font_scalings</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'large':</span> <span class="pre">1.2,</span> <span class="pre">'larger':</span> <span class="pre">1.2,</span> <span class="pre">'medium':</span> <span class="pre">1.0,</span> <span class="pre">'small':</span> <span class="pre">0.833,</span> <span class="pre">'smaller':</span> <span class="pre">0.833,</span> <span class="pre">'x-large':</span> <span class="pre">1.44,</span> <span class="pre">'x-small':</span> <span class="pre">0.694,</span> <span class="pre">'xx-large':</span> <span class="pre">1.728,</span> <span class="pre">'xx-small':</span> <span class="pre">0.579,</span> <span class="pre">None:</span> <span class="pre">1.0}</span></em><a class="headerlink" href="#dhs.helpers.base.plot_params.PlotParams.font_scalings" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.plot_params.PlotParams.set_rc_params">
+<span class="sig-name descname"><span class="pre">set_rc_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/plot_params.html#PlotParams.set_rc_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.plot_params.PlotParams.set_rc_params" title="Link to this definition"></a></dt>
+<dd><p>Define plotting parameters.</p>
+<p>This function returns the plotting parameters for different
+plot styles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<em>str</em>) – Type of figure [fig_small, fig_medium, fig_big].</p></li>
+<li><p><strong>fig_size</strong> (<em>tuple</em>) – Figure size.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with parameters for plotting.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.helpers.base.prior_mdls">
+<span id="dhs-helpers-base-prior-mdls-module"></span><h2>dhs.helpers.base.prior_mdls module<a class="headerlink" href="#module-dhs.helpers.base.prior_mdls" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.helpers.base.prior_mdls.</span></span><span class="sig-name descname"><span class="pre">PriorMdls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_bal">
+<span class="sig-name descname"><span class="pre">create_mdl_bal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_bal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_bal" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Bayesian adaptive lasso prior.</p>
+<p>This function creates a random intercept model that uses the
+Bayesian adaptive lasso prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bayesian adaptive lasso PyMC model to be numerically
+estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dhs">
+<span class="sig-name descname"><span class="pre">create_mdl_dhs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_dhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dhs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Dirichlet-horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+Dirichlet-horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dirichlet-horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dl">
+<span class="sig-name descname"><span class="pre">create_mdl_dl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_dl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dl" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Dirichlet-Laplace prior.</p>
+<p>This function creates a random intercept model that uses the
+Dirichlet-Laplace prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dirichlet-Laplace PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_hs">
+<span class="sig-name descname"><span class="pre">create_mdl_hs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_hs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_hs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_rhs">
+<span class="sig-name descname"><span class="pre">create_mdl_rhs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_rhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_rhs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the regularized horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+regularized horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Regularized horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_spsl">
+<span class="sig-name descname"><span class="pre">create_mdl_spsl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_spsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_spsl" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the spike-and-slab prior.</p>
+<p>This function creates a random intercept model that uses the
+spike-and-slab prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spike-and-slab PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.prior_mdls.PriorMdls.create_target_pred">
+<span class="sig-name descname"><span class="pre">create_target_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Distribution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Distribution</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Distribution</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_target_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.prior_mdls.PriorMdls.create_target_pred" title="Link to this definition"></a></dt>
+<dd><p>Create the target prediction variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param</strong> (<em>pm.Distribution</em>) – Parameter distribution.</p></li>
+<li><p><strong>icpt</strong> (<em>pm.Distribution</em>) – Intercept.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Target prediction variable (model mean).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pm.Distribution</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.helpers.base">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dhs.helpers.base" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.helpers.base.PlotParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.helpers.base.</span></span><span class="sig-name descname"><span class="pre">PlotParams</span></span><a class="reference internal" href="_modules/dhs/helpers/base/plot_params.html#PlotParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PlotParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.helpers.base.PlotParams.font_scalings">
+<span class="sig-name descname"><span class="pre">font_scalings</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'large':</span> <span class="pre">1.2,</span> <span class="pre">'larger':</span> <span class="pre">1.2,</span> <span class="pre">'medium':</span> <span class="pre">1.0,</span> <span class="pre">'small':</span> <span class="pre">0.833,</span> <span class="pre">'smaller':</span> <span class="pre">0.833,</span> <span class="pre">'x-large':</span> <span class="pre">1.44,</span> <span class="pre">'x-small':</span> <span class="pre">0.694,</span> <span class="pre">'xx-large':</span> <span class="pre">1.728,</span> <span class="pre">'xx-small':</span> <span class="pre">0.579,</span> <span class="pre">None:</span> <span class="pre">1.0}</span></em><a class="headerlink" href="#dhs.helpers.base.PlotParams.font_scalings" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PlotParams.set_rc_params">
+<span class="sig-name descname"><span class="pre">set_rc_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/plot_params.html#PlotParams.set_rc_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PlotParams.set_rc_params" title="Link to this definition"></a></dt>
+<dd><p>Define plotting parameters.</p>
+<p>This function returns the plotting parameters for different
+plot styles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<em>str</em>) – Type of figure [fig_small, fig_medium, fig_big].</p></li>
+<li><p><strong>fig_size</strong> (<em>tuple</em>) – Figure size.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with parameters for plotting.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.helpers.base.</span></span><span class="sig-name descname"><span class="pre">PriorMdls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_bal">
+<span class="sig-name descname"><span class="pre">create_mdl_bal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_bal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_bal" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Bayesian adaptive lasso prior.</p>
+<p>This function creates a random intercept model that uses the
+Bayesian adaptive lasso prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bayesian adaptive lasso PyMC model to be numerically
+estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_dhs">
+<span class="sig-name descname"><span class="pre">create_mdl_dhs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_dhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_dhs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Dirichlet-horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+Dirichlet-horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dirichlet-horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_dl">
+<span class="sig-name descname"><span class="pre">create_mdl_dl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_dl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_dl" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Dirichlet-Laplace prior.</p>
+<p>This function creates a random intercept model that uses the
+Dirichlet-Laplace prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dirichlet-Laplace PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_hs">
+<span class="sig-name descname"><span class="pre">create_mdl_hs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_hs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_hs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_rhs">
+<span class="sig-name descname"><span class="pre">create_mdl_rhs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_rhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_rhs" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the regularized horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+regularized horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Regularized horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_mdl_spsl">
+<span class="sig-name descname"><span class="pre">create_mdl_spsl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_mdl_spsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_mdl_spsl" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the spike-and-slab prior.</p>
+<p>This function creates a random intercept model that uses the
+spike-and-slab prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spike-and-slab PyMC model to be estimated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.helpers.base.PriorMdls.create_target_pred">
+<span class="sig-name descname"><span class="pre">create_target_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Distribution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Distribution</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Distribution</span></span></span><a class="reference internal" href="_modules/dhs/helpers/base/prior_mdls.html#PriorMdls.create_target_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.base.PriorMdls.create_target_pred" title="Link to this definition"></a></dt>
+<dd><p>Create the target prediction variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param</strong> (<em>pm.Distribution</em>) – Parameter distribution.</p></li>
+<li><p><strong>icpt</strong> (<em>pm.Distribution</em>) – Intercept.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Target prediction variable (model mean).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pm.Distribution</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dhs.helpers.html" class="btn btn-neutral float-left" title="dhs.helpers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dhs.utils.html" class="btn btn-neutral float-right" title="dhs.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

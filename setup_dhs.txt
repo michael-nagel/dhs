@@ -1,0 +1,6 @@
+    python3 -m venv dhs_venv
+
+    source dhs_venv/bin/activate
+
+    pip install git+https://github.com/michael-nagel/dhs.git
+    

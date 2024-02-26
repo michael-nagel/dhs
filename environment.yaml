@@ -1,0 +1,16 @@
+name: dhs_env
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python>=3.10.0
+  - mamba
+  - conda-lock
+  - pip
+  - poetry>=1.7
+  - pymc=4.0.1
+
+platforms:
+  - linux-64

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.run_real_data &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=6efca38a"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">dhs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dhs.run_real_data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dhs.run_real_data</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This script investigates the (finite) sample performance of the</span>
+<span class="sd">Dirichlet-horseshoe prior compared to other priors using a real-data</span>
+<span class="sd">example. In this setting, we aim to estimate the effects of emotional</span>
+<span class="sd">cues on alcohol consumption in a soccer stadium.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Imports</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">DefaultDict</span>
+
+<span class="kn">import</span> <span class="nn">hydra</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">hydra.core.config_store</span> <span class="kn">import</span> <span class="n">ConfigStore</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="kn">from</span> <span class="nn">dhs.helpers</span> <span class="kn">import</span> <span class="n">create_mdl_alc_data</span>
+<span class="kn">from</span> <span class="nn">dhs.helpers.base</span> <span class="kn">import</span> <span class="n">PlotParams</span>
+<span class="kn">from</span> <span class="nn">dhs.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DHSConfig</span><span class="p">,</span>
+    <span class="n">Logger</span><span class="p">,</span>
+    <span class="n">create_list_comp</span><span class="p">,</span>
+    <span class="n">plot_posteriors</span><span class="p">,</span>
+    <span class="n">run_sampler</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Hydra Setup</span>
+
+<span class="n">cs</span> <span class="o">=</span> <span class="n">ConfigStore</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dhs_config&quot;</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">DHSConfig</span><span class="p">)</span>
+
+<span class="c1"># Function</span>
+
+
+<div class="viewcode-block" id="run_real_data">
+<a class="viewcode-back" href="../../dhs.html#dhs.run_real_data.run_real_data">[docs]</a>
+<span class="nd">@hydra</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;conf&quot;</span><span class="p">,</span> <span class="n">config_name</span><span class="o">=</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="n">version_base</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">run_real_data</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">DHSConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Logging</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="n">init_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">t_start</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+
+    <span class="c1"># External Files</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">acc</span><span class="si">}{</span><span class="n">cfg</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">clr_plt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">stata_colors</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">data</span><span class="si">}{</span><span class="n">cfg</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">alc_data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">dict_alc_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+
+    <span class="c1"># Cockpit</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="n">stata_colors</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+
+    <span class="n">plot_params</span> <span class="o">=</span> <span class="n">PlotParams</span><span class="p">()</span><span class="o">.</span><span class="n">set_rc_params</span><span class="p">(</span>
+        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;fig_big&quot;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">plot_params</span><span class="p">)</span>
+
+    <span class="c1"># Transformations</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">li_cues</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_cues&quot;</span><span class="p">]</span>
+    <span class="n">li_covars_1</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_covars_1&quot;</span><span class="p">]</span>
+    <span class="n">li_covars_2</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_covars_2&quot;</span><span class="p">]</span>
+    <span class="n">li_time_dum</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_time_dum&quot;</span><span class="p">]</span>
+    <span class="n">li_states</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_states&quot;</span><span class="p">]</span>
+    <span class="n">li_lag_target</span> <span class="o">=</span> <span class="n">dict_alc_data</span><span class="p">[</span><span class="s2">&quot;li_lag_target&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Demeaning of the dependent variable</span>
+    <span class="n">scaler_mean</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">(</span><span class="n">with_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;BeerSls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler_mean</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;BeerSls&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Standardization of covariates</span>
+    <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">(</span><span class="n">with_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">li_vars_scale</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">li_cues</span> <span class="o">+</span> <span class="n">li_covars_1</span> <span class="o">+</span> <span class="n">li_covars_2</span> <span class="o">+</span> <span class="n">li_lag_target</span> <span class="o">+</span> <span class="n">li_time_dum</span>
+    <span class="p">)</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="n">li_vars_scale</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">li_vars_scale</span><span class="p">])</span>
+
+    <span class="c1"># Object Creation</span>
+
+    <span class="n">dict_data</span><span class="p">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">()</span>
+
+    <span class="c1"># Cue specific state</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;state_sur&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">create_list_comp</span><span class="p">(</span><span class="n">li</span><span class="o">=</span><span class="n">li_states</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;StateSur&quot;</span><span class="p">)]</span>
+        <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">values</span>
+    <span class="p">)</span>
+
+    <span class="c1"># States</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_states&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;State_L0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;states&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">create_list_comp</span><span class="p">(</span><span class="n">li</span><span class="o">=</span><span class="n">li_states</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;State_L&quot;</span><span class="p">)]</span>
+        <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">values</span>
+    <span class="p">)</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;covars_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">li_covars_1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_covars_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;covars_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;time_dum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">li_time_dum</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_time_dum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;time_dum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;sur&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span>
+        <span class="n">create_list_comp</span><span class="p">(</span><span class="n">li</span><span class="o">=</span><span class="n">li_cues</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;Surprise&quot;</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_sur_vars&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;sur&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;sus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span>
+        <span class="n">create_list_comp</span><span class="p">(</span><span class="n">li</span><span class="o">=</span><span class="n">li_cues</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;Suspense&quot;</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_sus_vars&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;sus&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;lag_target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">li_lag_target</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_lag_target_vars&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;lag_target&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;covars_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Matchup&quot;</span><span class="p">)[</span><span class="n">li_covars_2</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_covars_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;covars_2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">matchup_idxs</span><span class="p">,</span> <span class="n">matchups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Matchup&quot;</span><span class="p">])</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;matchup_idxs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matchup_idxs</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;coords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;matchup&quot;</span><span class="p">:</span> <span class="n">matchups</span><span class="p">,</span>
+        <span class="s2">&quot;obs_id&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matchup_idxs</span><span class="p">)),</span>
+    <span class="p">}</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;BeerSls&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_lags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+
+    <span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_matches&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Matchup&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ngroups</span>
+
+    <span class="c1"># Estimation</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_mdl_alc_data</span><span class="p">(</span><span class="n">dict_data</span><span class="o">=</span><span class="n">dict_data</span><span class="p">)</span>
+
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">run_sampler</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">n_draws</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_draws</span><span class="p">,</span>
+        <span class="n">n_tune</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_tune</span><span class="p">,</span>
+        <span class="n">n_chains</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_chains</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span>
+        <span class="n">targ_acpt</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">targ_acpt</span><span class="p">,</span>
+        <span class="n">postprocessing_backend</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+        <span class="n">chain_method</span><span class="o">=</span><span class="s2">&quot;parallel&quot;</span><span class="p">,</span>
+        <span class="n">idata_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;log_likelihood&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
+        <span class="n">trace</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">models</span><span class="si">}</span><span class="s2">trace_alc_data.nc&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Posterior Plotting</span>
+
+    <span class="n">plot_posteriors</span><span class="p">(</span>
+        <span class="n">mdl_trace</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span>
+        <span class="n">n_states</span><span class="o">=</span><span class="n">dict_data</span><span class="p">[</span><span class="s2">&quot;n_states&quot;</span><span class="p">],</span>
+        <span class="n">li_vars_plot</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Surprise&quot;</span><span class="p">,</span> <span class="s2">&quot;Suspense&quot;</span><span class="p">],</span>
+        <span class="n">li_cues</span><span class="o">=</span><span class="n">li_cues</span><span class="p">,</span>
+        <span class="n">fig_path</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">figures</span><span class="p">,</span>
+        <span class="n">fig_name</span><span class="o">=</span><span class="s2">&quot;fig4&quot;</span><span class="p">,</span>
+        <span class="n">save</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">save</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Execution Time and Log File Finish</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">Logger</span><span class="o">.</span><span class="n">get_exec_time</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="n">t_start</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_real_data</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

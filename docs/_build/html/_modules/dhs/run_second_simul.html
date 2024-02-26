@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.run_second_simul &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=6efca38a"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">dhs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dhs.run_second_simul</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dhs.run_second_simul</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This script investigates the (finite) sample performance of the</span>
+<span class="sd">Dirichlet-horseshoe prior compared to other priors by simulating a</span>
+<span class="sd">correlated features problem. In this setting, one aims to estimate a</span>
+<span class="sd">D-dimensional parameter vector based on a NxK feature space corrupted</span>
+<span class="sd">with iid standard normal noise.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Imports</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">import</span> <span class="nn">hydra</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">hydra.core.config_store</span> <span class="kn">import</span> <span class="n">ConfigStore</span>
+
+<span class="kn">from</span> <span class="nn">dhs.helpers</span> <span class="kn">import</span> <span class="n">create_simuls</span>
+<span class="kn">from</span> <span class="nn">dhs.helpers.base</span> <span class="kn">import</span> <span class="n">PlotParams</span>
+<span class="kn">from</span> <span class="nn">dhs.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DHSConfig</span><span class="p">,</span>
+    <span class="n">Logger</span><span class="p">,</span>
+    <span class="n">NumFormat</span><span class="p">,</span>
+    <span class="n">mod_tex_tab</span><span class="p">,</span>
+    <span class="n">plot_metrics</span><span class="p">,</span>
+    <span class="n">write_text_file</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Hydra Setup</span>
+
+<span class="n">cs</span> <span class="o">=</span> <span class="n">ConfigStore</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dhs_config&quot;</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">DHSConfig</span><span class="p">)</span>
+
+<span class="c1"># Function</span>
+
+
+<div class="viewcode-block" id="run_second_simul">
+<a class="viewcode-back" href="../../dhs.html#dhs.run_second_simul.run_second_simul">[docs]</a>
+<span class="nd">@hydra</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;conf&quot;</span><span class="p">,</span> <span class="n">config_name</span><span class="o">=</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="n">version_base</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">run_second_simul</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">DHSConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Logging</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="n">init_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">t_start</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+
+    <span class="c1"># External Files</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">acc</span><span class="si">}{</span><span class="n">cfg</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">clr_plt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">stata_colors</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># Cockpit</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="n">stata_colors</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+
+    <span class="n">plot_params</span> <span class="o">=</span> <span class="n">PlotParams</span><span class="p">()</span><span class="o">.</span><span class="n">set_rc_params</span><span class="p">(</span>
+        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;fig_big&quot;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">plot_params</span><span class="p">)</span>
+
+    <span class="c1"># Simulation</span>
+
+    <span class="n">loss_low</span><span class="p">,</span> <span class="n">loss_high</span><span class="p">,</span> <span class="n">df_metrics_p1</span><span class="p">,</span> <span class="n">df_metrics_p2</span> <span class="o">=</span> <span class="n">create_simuls</span><span class="p">(</span>
+        <span class="n">simul</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">vars_1</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">second_simul</span><span class="o">.</span><span class="n">n_obs</span><span class="p">,</span>
+        <span class="n">vars_2</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">second_simul</span><span class="o">.</span><span class="n">feat_corr</span><span class="p">,</span>
+        <span class="n">priors</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">priors</span><span class="p">,</span>
+        <span class="n">n_repl</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">n_repl</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span>
+        <span class="n">n_draws</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_draws</span><span class="p">,</span>
+        <span class="n">n_tune</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_tune</span><span class="p">,</span>
+        <span class="n">n_chains</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">n_chains</span><span class="p">,</span>
+        <span class="n">targ_acpt</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">targ_acpt</span><span class="p">,</span>
+        <span class="n">hdi</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">estimation</span><span class="o">.</span><span class="n">hdi</span><span class="p">,</span>
+        <span class="n">n_vars</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">second_simul</span><span class="o">.</span><span class="n">n_vars</span><span class="p">,</span>
+        <span class="n">frac_rel_vars</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">second_simul</span><span class="o">.</span><span class="n">frac_rel_vars</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">loss_low</span><span class="p">,</span> <span class="n">loss_high</span><span class="p">,</span> <span class="n">df_metrics_p1</span><span class="p">,</span> <span class="n">df_metrics_p2</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;w&quot;</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">df</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span>
+                <span class="n">path_or_buf</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">models</span><span class="si">}</span><span class="s2">simul2_metrics.h5&quot;</span><span class="p">,</span>
+                <span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;df_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Plotting</span>
+
+    <span class="n">plot_metrics</span><span class="p">(</span>
+        <span class="n">priors</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">priors</span><span class="p">,</span>
+        <span class="n">li_metrics</span><span class="o">=</span><span class="p">[</span><span class="n">loss_low</span><span class="p">,</span> <span class="n">loss_high</span><span class="p">],</span>
+        <span class="n">metric_name</span><span class="o">=</span><span class="s2">&quot;Loss&quot;</span><span class="p">,</span>
+        <span class="n">x_label</span><span class="o">=</span><span class="s2">&quot;Predictor Correlations&quot;</span><span class="p">,</span>
+        <span class="n">fig_path</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">figures</span><span class="p">,</span>
+        <span class="n">fig_name</span><span class="o">=</span><span class="s2">&quot;fig3&quot;</span><span class="p">,</span>
+        <span class="n">save</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">save</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># TeX Files</span>
+
+    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
+        <span class="n">write_text_file</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">tables</span><span class="si">}</span><span class="s2">tab3.tex&quot;</span><span class="p">,</span>
+            <span class="n">body</span><span class="o">=</span><span class="n">mod_tex_tab</span><span class="p">(</span><span class="n">tab</span><span class="o">=</span><span class="n">df_metrics_p1</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">NumFormat</span><span class="o">.</span><span class="n">format_col</span><span class="p">)</span>
+                             <span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">na_rep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
+        <span class="p">)</span>
+
+        <span class="n">write_text_file</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">tables</span><span class="si">}</span><span class="s2">tab4.tex&quot;</span><span class="p">,</span>
+            <span class="n">body</span><span class="o">=</span><span class="n">mod_tex_tab</span><span class="p">(</span>
+                <span class="n">tab</span><span class="o">=</span><span class="n">df_metrics_p2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">NumFormat</span><span class="o">.</span><span class="n">format_col</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">formatter</span><span class="o">=</span><span class="p">{</span>
+                        <span class="s2">&quot;Rhat&quot;</span><span class="p">:</span> <span class="n">NumFormat</span><span class="p">(</span><span class="n">my_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format_post</span>
+                        <span class="p">},</span> <span class="n">na_rep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Execution Time and Log File Finish</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">Logger</span><span class="o">.</span><span class="n">get_exec_time</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="n">t_start</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_second_simul</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

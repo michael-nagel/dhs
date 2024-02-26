@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.helpers package &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6efca38a"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dhs.helpers.base package" href="dhs.helpers.base.html" />
+    <link rel="prev" title="dhs package" href="dhs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dhs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dhs.html">dhs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dhs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">dhs.helpers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html">dhs.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.plot_marg_dens">dhs.plot_marg_dens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_dhs_example">dhs.run_dhs_example module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_first_simul">dhs.run_first_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_hyperparam_sens">dhs.run_hyperparam_sens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_real_data">dhs.run_real_data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_second_simul">dhs.run_second_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">dhs</a></li>
+          <li class="breadcrumb-item"><a href="dhs.html">dhs package</a></li>
+      <li class="breadcrumb-item active">dhs.helpers package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dhs.helpers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dhs-helpers-package">
+<h1>dhs.helpers package<a class="headerlink" href="#dhs-helpers-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dhs.helpers.base.html">dhs.helpers.base package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.base.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base.plot_params">dhs.helpers.base.plot_params module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.plot_params.PlotParams"><code class="docutils literal notranslate"><span class="pre">PlotParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.plot_params.PlotParams.font_scalings"><code class="docutils literal notranslate"><span class="pre">PlotParams.font_scalings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.plot_params.PlotParams.set_rc_params"><code class="docutils literal notranslate"><span class="pre">PlotParams.set_rc_params()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base.prior_mdls">dhs.helpers.base.prior_mdls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls"><code class="docutils literal notranslate"><span class="pre">PriorMdls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_bal"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_bal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dhs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_dhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_dl"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_dl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_hs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_hs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_rhs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_mdl_spsl"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_spsl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.prior_mdls.PriorMdls.create_target_pred"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_target_pred()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PlotParams"><code class="docutils literal notranslate"><span class="pre">PlotParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PlotParams.font_scalings"><code class="docutils literal notranslate"><span class="pre">PlotParams.font_scalings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PlotParams.set_rc_params"><code class="docutils literal notranslate"><span class="pre">PlotParams.set_rc_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls"><code class="docutils literal notranslate"><span class="pre">PriorMdls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_bal"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_bal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_dhs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_dhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_dl"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_dl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_hs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_hs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_rhs"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_mdl_spsl"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_mdl_spsl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#dhs.helpers.base.PriorMdls.create_target_pred"><code class="docutils literal notranslate"><span class="pre">PriorMdls.create_target_pred()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-dhs.helpers.create_dhs">
+<span id="dhs-helpers-create-dhs-module"></span><h2>dhs.helpers.create_dhs module<a class="headerlink" href="#module-dhs.helpers.create_dhs" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.helpers.create_dhs.create_dhs">
+<span class="sig-prename descclassname"><span class="pre">dhs.helpers.create_dhs.</span></span><span class="sig-name descname"><span class="pre">create_dhs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/create_dhs.html#create_dhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.create_dhs.create_dhs" title="Link to this definition"></a></dt>
+<dd><p>Create Dirichlet-horseshoe prior.</p>
+<p>This function creates a general model for estimation with the
+Dirichlet-horseshoe prior. Modifications can be made through
+function inputs, or by adjusting the hyperparameters, e.g., the
+slab width, of the specified priors. Experienced users may go
+beyond adjusting hyperparameters. For instance, they can introduce
+additional priors to accommodate random effects or alter the
+distribution from which the noise parameter is sampled. It is also
+possible to fix values instead of sampling them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>pd.Series</em><em> | </em><em>np.ndarray</em>) – Dependent variable.</p></li>
+<li><p><strong>features</strong> (<em>np.ndarray</em>) – Predictor variables.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dirichlet-horseshoe PyMC model to be estimated.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.helpers.create_mdl_alc_data">
+<span id="dhs-helpers-create-mdl-alc-data-module"></span><h2>dhs.helpers.create_mdl_alc_data module<a class="headerlink" href="#module-dhs.helpers.create_mdl_alc_data" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.helpers.create_mdl_alc_data.create_mdl_alc_data">
+<span class="sig-prename descclassname"><span class="pre">dhs.helpers.create_mdl_alc_data.</span></span><span class="sig-name descname"><span class="pre">create_mdl_alc_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/dhs/helpers/create_mdl_alc_data.html#create_mdl_alc_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.create_mdl_alc_data.create_mdl_alc_data" title="Link to this definition"></a></dt>
+<dd><p>Create a PyMC model using the Dirichlet-horseshoe prior.</p>
+<p>This function creates a random intercept model that uses the
+Dirichlet-horseshoe prior for estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict_data</strong> (<em>dict</em>) – Data dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Real-data PyMC model to be estimated.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pm.Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.helpers.create_simuls">
+<span id="dhs-helpers-create-simuls-module"></span><h2>dhs.helpers.create_simuls module<a class="headerlink" href="#module-dhs.helpers.create_simuls" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.helpers.create_simuls.create_simuls">
+<span class="sig-prename descclassname"><span class="pre">dhs.helpers.create_simuls.</span></span><span class="sig-name descname"><span class="pre">create_simuls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simul</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_draws</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tune</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targ_acpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_rel_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/dhs/helpers/create_simuls.html#create_simuls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.helpers.create_simuls.create_simuls" title="Link to this definition"></a></dt>
+<dd><p>Run simulation studies.</p>
+<p>This function performs the simulation studies 1 and 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simul</strong> (<em>int</em>) – Simulation study (1 or 2).</p></li>
+<li><p><strong>vars_1</strong> (<em>list</em>) – First variable for the simulation study.</p></li>
+<li><p><strong>vars_2</strong> (<em>list</em>) – Second variable for the simulation study.</p></li>
+<li><p><strong>priors</strong> (<em>list</em>) – Prior distributions.</p></li>
+<li><p><strong>n_repl</strong> (<em>int</em>) – Number of replications.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random seed.</p></li>
+<li><p><strong>n_draws</strong> (<em>int</em>) – Number of draws.</p></li>
+<li><p><strong>n_tune</strong> (<em>int</em>) – Number of tuning samples (burn-in).</p></li>
+<li><p><strong>n_chains</strong> (<em>int</em>) – Number of chains.</p></li>
+<li><p><strong>targ_acpt</strong> (<em>float</em>) – Target acceptance rate.</p></li>
+<li><p><strong>hdi</strong> (<em>float</em>) – Highest density interval</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em>, </em><em>optional</em>) – Dimensionality.</p></li>
+<li><p><strong>n_vars</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of variables.</p></li>
+<li><p><strong>frac_rel_vars</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of relevant variables.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.helpers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dhs.helpers" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dhs.html" class="btn btn-neutral float-left" title="dhs package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dhs.helpers.base.html" class="btn btn-neutral float-right" title="dhs.helpers.base package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

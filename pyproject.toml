@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "dhs"
+version = "1.2.0"
+description = "Replication package for 'An Alternative Prior for Estimation in High-Dimensional Settings'."
+authors = [
+    "Michael Nagel <m.nagel@uni-tuebingen.de>",
+    "Lukas Fischer <lukas.fischer@uni-tuebingen.de>",
+]
+maintainers = ["Michael Nagel <m.nagel@uni-tuebingen.de>"]
+license = "MIT"
+readme = ["README.md", "LICENSE"]
+packages = [
+  {include = "dhs", from = "src"}
+]
+homepage = "https://doi.org/10.1080/10705511.2023.2281279"
+repository = "https://github.com/michael-nagel/dhs"
+documentation = "https://htmlpreview.github.io/?https://github.com/michael-nagel/dhs/blob/main/docs/_build/html/index.html"
+keywords = [
+  "dirichlet-laplace", 
+  "parameter space", 
+  "prior distribution", 
+  "regularized horseshoe", 
+  "shrinkage prior", 
+  "sparse bayesian estimation"
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3",
+  "Operating System :: Unix",
+]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/michael-nagel/dhs/blob/main/CHANGELOG.rst"
+
+[tool.poetry.dependencies]
+python = "^3.10.0"
+numpy = "^1.24.1"
+pandas = "^1.5.2"
+matplotlib = "^3.6.2"
+seaborn = "^0.12.2"
+jinja2 = "^3.1.2"
+arviz = "0.14.0"
+scikit-learn = "^1.2.0"
+scipy = "^1.9.3"
+jax = "0.4.2"
+jaxlib = "0.4.2"
+numpyro = "0.10.1"
+hydra-core = "^1.3.2"
+pymc = "4.0.1"
+conda-lock = "^2.5.2"
+h5py = "^3.10.0"
+tables = "^3.9.2"
+
+[tool.poetry.group.dev.dependencies]
+Sphinx = "^7.2.6"
+sphinx-rtd-theme = "^2.0.0"
+tox = "^4.11.4"
+pytest = "^7.4.4"
+pytest-sugar = "^0.9.7"
+flake8 = "^7.0.0"
+mypy = "^1.8.0"
+pytest-cov = "^4.1.0"
+esbonio = "^0.16.04"
+
+[[tool.mypy.overrides]]
+module = [
+  "pandas",
+  "scipy.integrate",
+  "scipy.stats",
+  "pymc",
+  "pymc.sampling_jax",
+  "seaborn",
+  "sklearn.preprocessing",
+  "sklearn.processing",
+]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

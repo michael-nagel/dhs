@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.helpers.create_dhs &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6efca38a"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dhs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dhs.helpers.create_dhs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dhs.helpers.create_dhs</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Imports</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pymc</span> <span class="k">as</span> <span class="nn">pm</span>
+
+<span class="kn">from</span> <span class="nn">dhs.utils</span> <span class="kn">import</span> <span class="n">_PmObj</span>
+
+<span class="c1"># Model</span>
+
+
+<div class="viewcode-block" id="create_dhs">
+<a class="viewcode-back" href="../../../dhs.helpers.html#dhs.helpers.create_dhs.create_dhs">[docs]</a>
+<span class="k">def</span> <span class="nf">create_dhs</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create Dirichlet-horseshoe prior.</span>
+
+<span class="sd">    This function creates a general model for estimation with the</span>
+<span class="sd">    Dirichlet-horseshoe prior. Modifications can be made through</span>
+<span class="sd">    function inputs, or by adjusting the hyperparameters, e.g., the</span>
+<span class="sd">    slab width, of the specified priors. Experienced users may go</span>
+<span class="sd">    beyond adjusting hyperparameters. For instance, they can introduce</span>
+<span class="sd">    additional priors to accommodate random effects or alter the</span>
+<span class="sd">    distribution from which the noise parameter is sampled. It is also</span>
+<span class="sd">    possible to fix values instead of sampling them.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    target : pd.Series | np.ndarray</span>
+<span class="sd">        Dependent variable.</span>
+<span class="sd">    features : np.ndarray</span>
+<span class="sd">        Predictor variables.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pm.Model</span>
+<span class="sd">        Dirichlet-horseshoe PyMC model to be estimated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+        <span class="n">target</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+    <span class="p">),</span> <span class="s2">&quot;target must be a pd.Series or np.ndarray&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s2">&quot;features must be a np.ndarray&quot;</span>
+
+    <span class="n">n_obs</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+        <span class="c1"># Model error</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_halfcauchy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sig_eps&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Intercept (optional)</span>
+        <span class="n">intc</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_normal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;alpha&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Sparsity parameter for both concentration rate and fraction of</span>
+        <span class="c1"># relevant variables</span>
+        <span class="n">spars</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_beta</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;eta&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Number of relevant variables</span>
+        <span class="n">n_rel_vars</span> <span class="o">=</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">spars</span>
+
+        <span class="c1"># Joint regularization prior</span>
+        <span class="n">joint_reg_ofst</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_dirichlet</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;phi&quot;</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">concen</span><span class="o">=</span><span class="n">spars</span>
+        <span class="p">)</span>
+        <span class="n">joint_reg</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_det</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;phi_tld&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">dim</span> <span class="o">*</span> <span class="n">joint_reg_ofst</span><span class="p">)</span>
+
+        <span class="c1"># Global regularization prior</span>
+        <span class="n">glob_reg_scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_rel_vars</span> <span class="o">/</span> <span class="p">(</span><span class="n">dim</span> <span class="o">-</span> <span class="n">n_rel_vars</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">noise</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_obs</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">glob_reg</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_halfcauchy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;tau&quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">glob_reg_scale</span><span class="p">)</span>
+
+        <span class="c1"># Slab width</span>
+        <span class="n">slab</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_invgamma</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;c_sq&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Local regularization prior</span>
+        <span class="n">loc_reg_ofst</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_halfcauchy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;lam&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">loc_reg</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_det</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;lam_tld&quot;</span><span class="p">,</span>
+            <span class="n">var</span><span class="o">=</span><span class="p">(</span>
+                <span class="n">slab</span>
+                <span class="o">*</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqr</span><span class="p">(</span><span class="n">loc_reg_ofst</span><span class="p">)</span>
+                <span class="o">/</span> <span class="p">(</span><span class="n">slab</span> <span class="o">+</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqr</span><span class="p">(</span><span class="n">glob_reg</span><span class="p">)</span> <span class="o">*</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqr</span><span class="p">(</span><span class="n">loc_reg_ofst</span><span class="p">))</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Regression coefficients (uncentered representation)</span>
+        <span class="n">param_ofst</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_normal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;beta_ofst&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">param</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_det</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+            <span class="n">var</span><span class="o">=</span><span class="n">param_ofst</span> <span class="o">*</span> <span class="n">joint_reg</span> <span class="o">*</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">loc_reg</span><span class="p">)</span> <span class="o">*</span> <span class="n">glob_reg</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Target prediction</span>
+        <span class="n">target_pred</span> <span class="o">=</span> <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_det</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y_hat&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="n">intc</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Likelihood</span>
+        <span class="n">_PmObj</span><span class="o">.</span><span class="n">create_normal</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;likelihood&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">target_pred</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">noise</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">target</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

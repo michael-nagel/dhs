@@ -1,0 +1,81 @@
+﻿Variable,Data Type,Description
+AirPress,float64,Air pressure at minute t
+AvgClsOver05Prob,float64,Average closing probability for the final score to exceed 0.5
+AvgClsOver15Prob,float64,Average closing probability for the final score to exceed 1.5
+AvgClsOver25Prob,float64,Average closing probability for the final score to exceed 2.5
+AvgClsOver35Prob,float64,Average closing probability for the final score to exceed 3.5
+AvgClsOver45Prob,float64,Average closing probability for the final score to exceed 4.5
+AvgClsOver55Prob,float64,Average closing probability for the final score to exceed 5.5
+AvgClsProbAway,float64,Average closing probability for a home team victory
+AvgClsProbHome,float64,Average closing probability for an away team victory
+BeerPrice,float64,Beer Price for the match
+BeerSls,float64,Beer Sales at minute t
+GeoDist,float64,Geodesic distance between home and away team’s stadium (in km)
+HotWinePrice,float64,Hot wine price for the match
+HotWineSls,float64,Hot wine sales at minute t
+Is1stDiv,float64,Dummy for first division matches
+Is1stHalf,int64,Dummy for first half
+IsGoalAway,int32,Dummy for away team goal in minute t
+IsGoalHome,int32,Dummy for home team goal in minute t
+IsMin11,uint8,Dummy for minute 11
+…,…,…
+IsMin89,uint8,Dummy for minute 89
+IsMobCpoint,int64,Dummy for availability of mobile cashpoints for the match
+IsPrecip,int32,Dummy for precipitation in minute t
+IsPubHoliday,int32,Dummy for public holidays at the match day 
+IsRedAway,int32,Dummy for a away team red card at minute t
+IsRedHome,int32,Dummy for a home team red card at minute t
+IsRelegAway,int32,Dummy for the away team relegated last season
+IsRunner,int64,Dummy for availability of beer runner during the match
+IsSchlHoliday,int32,Dummy for school holidays at the match day
+IsSoldOut,int64,Dummy for sold out matches
+IsSubAway,int32,Dummy for a substitution of away team at minute t
+IsSubHome,int32,Dummy for a substitution of home team at minute t
+IsWasen,int32,Dummy for Wasen (local festival similar to Octoberfest)
+IsYellowAway,int32,Dummy for a yellow card of away team at minute t
+IsYellowHome,int32,Dummy for a yellow card of home team at minute t
+Kickoff15:30,uint8,Dummy for kickoff at 3.30 p.m.
+Kickoff15:45,uint8,Dummy for kickoff at 3.45 p.m.
+Kickoff17:30,uint8,Dummy for kickoff at 5.30 p.m.
+Kickoff18:00,uint8,Dummy for kickoff at 6.00 p.m.
+Kickoff18:30,uint8,Dummy for kickoff at 6.30 p.m.
+Kickoff2030,uint8,Dummy for kickoff at 8.30 p.m.
+MatchDate,datetime64[ns],Datetime at which the match is scheduled
+MatchMin,int32,Match minute
+Matchup,int64,Match ID
+MonthAug,uint8,Dummy for August matches
+MonthDec,uint8,Dummy for December matches
+MonthFeb,uint8,Dummy for February matches
+MonthJan,uint8,Dummy for January matches
+MonthMar,uint8,Dummy for March matches
+MonthMay,uint8,Dummy for May matches
+MonthNov,uint8,Dummy for November matches
+MonthOct,uint8,Dummy for October matches
+MonthSep,uint8,Dummy for September matches
+NumCpoints,int64,Number of open cashpoints for the match
+NumSpects,int64,Number of spectators for the match
+RankAwayLast,int32,Last season’s final rank of away team
+RankAwayPre,int64,Rank of away team before the match
+RankHomePre,int64,Rank of home team before the match
+RelHumid,float64,Relative Humidity at minute t
+Round,int32,the season’s matchday (round) of the match
+Season2014/15,uint8,Dummy for season 2014/15 matches
+Season2015/16,uint8,Dummy for season 2015/16 matches
+Season2017/18,uint8,Dummy for season 2016/17 matches
+Season2018/19,uint8,Dummy for season 2017/18 matches
+ShandySls,int32,Shandy sales at minute t
+Shock,float64,Emotional cue shock at minute t 
+SoftDrinksSls,int32,Soft drinks sales at minute t
+StateSur,float64,The (emotional) state at time t implied by Surprise
+State,float64,The (emotional) state at time t
+Surprise,float64,Emotional cue surprise at minute t
+Suspense,float64,Emotional cue suspense at minute t
+Temp,float64,Air temperature at minute t
+Time,datetime64[ns],Match minute
+WaterSls,float64,Water sales at minute t
+Wind,float64,Wind speed at minute t
+WkdayMo,uint8,Dummy for Monday matches
+WkdaySa,uint8,Dummy for Saturday matches
+WkdaySu,uint8,Dummy for Sunday matches
+WkdayTu,uint8,Dummy for Tuesday matches
+WkdayWe,uint8,Dummy for Wednesday matches

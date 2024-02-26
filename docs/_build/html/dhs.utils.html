@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs.utils package &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6efca38a"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="dhs.helpers.base package" href="dhs.helpers.base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dhs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dhs.html">dhs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dhs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.html">dhs.helpers package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">dhs.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.plot_marg_dens">dhs.plot_marg_dens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_dhs_example">dhs.run_dhs_example module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_first_simul">dhs.run_first_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_hyperparam_sens">dhs.run_hyperparam_sens module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_real_data">dhs.run_real_data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs.run_second_simul">dhs.run_second_simul module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.html#module-dhs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">dhs</a></li>
+          <li class="breadcrumb-item"><a href="dhs.html">dhs package</a></li>
+      <li class="breadcrumb-item active">dhs.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dhs.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dhs-utils-package">
+<h1>dhs.utils package<a class="headerlink" href="#dhs-utils-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-dhs.utils.config">
+<span id="dhs-utils-config-module"></span><h2>dhs.utils.config module<a class="headerlink" href="#module-dhs.utils.config" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">DHSConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Paths" title="dhs.utils.config.Paths"><span class="pre">dhs.utils.config.Paths</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Files" title="dhs.utils.config.Files"><span class="pre">dhs.utils.config.Files</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">general</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.General" title="dhs.utils.config.General"><span class="pre">dhs.utils.config.General</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">densities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Densities" title="dhs.utils.config.Densities"><span class="pre">dhs.utils.config.Densities</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_simul</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Simul1" title="dhs.utils.config.Simul1"><span class="pre">dhs.utils.config.Simul1</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_simul</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Simul2" title="dhs.utils.config.Simul2"><span class="pre">dhs.utils.config.Simul2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hyperparams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Hyperparams" title="dhs.utils.config.Hyperparams"><span class="pre">dhs.utils.config.Hyperparams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Estimation" title="dhs.utils.config.Estimation"><span class="pre">dhs.utils.config.Estimation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Plotting" title="dhs.utils.config.Plotting"><span class="pre">dhs.utils.config.Plotting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Example" title="dhs.utils.config.Example"><span class="pre">dhs.utils.config.Example</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#DHSConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.DHSConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.densities">
+<span class="sig-name descname"><span class="pre">densities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Densities" title="dhs.utils.config.Densities"><span class="pre">Densities</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.densities" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.estimation">
+<span class="sig-name descname"><span class="pre">estimation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Estimation" title="dhs.utils.config.Estimation"><span class="pre">Estimation</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.estimation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.example">
+<span class="sig-name descname"><span class="pre">example</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Example" title="dhs.utils.config.Example"><span class="pre">Example</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.example" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.files">
+<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Files" title="dhs.utils.config.Files"><span class="pre">Files</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.files" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.first_simul">
+<span class="sig-name descname"><span class="pre">first_simul</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Simul1" title="dhs.utils.config.Simul1"><span class="pre">Simul1</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.first_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.general">
+<span class="sig-name descname"><span class="pre">general</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.General" title="dhs.utils.config.General"><span class="pre">General</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.general" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.hyperparams">
+<span class="sig-name descname"><span class="pre">hyperparams</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Hyperparams" title="dhs.utils.config.Hyperparams"><span class="pre">Hyperparams</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.hyperparams" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.paths">
+<span class="sig-name descname"><span class="pre">paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Paths" title="dhs.utils.config.Paths"><span class="pre">Paths</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.paths" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.plotting">
+<span class="sig-name descname"><span class="pre">plotting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Plotting" title="dhs.utils.config.Plotting"><span class="pre">Plotting</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.plotting" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.DHSConfig.second_simul">
+<span class="sig-name descname"><span class="pre">second_simul</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Simul2" title="dhs.utils.config.Simul2"><span class="pre">Simul2</span></a></em><a class="headerlink" href="#dhs.utils.config.DHSConfig.second_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Densities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Densities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Densities" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Densities.dim" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.n_obs">
+<span class="sig-name descname"><span class="pre">n_obs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Densities.n_obs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.noise">
+<span class="sig-name descname"><span class="pre">noise</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Densities.noise" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.samples">
+<span class="sig-name descname"><span class="pre">samples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Densities.samples" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.seq">
+<span class="sig-name descname"><span class="pre">seq</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Densities.seq" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Densities.trunc">
+<span class="sig-name descname"><span class="pre">trunc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Densities.trunc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Estimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_draws</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tune</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targ_acpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Estimation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Estimation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation.hdi">
+<span class="sig-name descname"><span class="pre">hdi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Estimation.hdi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation.n_chains">
+<span class="sig-name descname"><span class="pre">n_chains</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Estimation.n_chains" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation.n_draws">
+<span class="sig-name descname"><span class="pre">n_draws</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Estimation.n_draws" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation.n_tune">
+<span class="sig-name descname"><span class="pre">n_tune</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Estimation.n_tune" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Estimation.targ_acpt">
+<span class="sig-name descname"><span class="pre">targ_acpt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Estimation.targ_acpt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Example">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Example</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_draws</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tune</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targ_acpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Example"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Example" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Example.hdi">
+<span class="sig-name descname"><span class="pre">hdi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Example.hdi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Example.n_chains">
+<span class="sig-name descname"><span class="pre">n_chains</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Example.n_chains" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Example.n_draws">
+<span class="sig-name descname"><span class="pre">n_draws</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Example.n_draws" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Example.n_tune">
+<span class="sig-name descname"><span class="pre">n_tune</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Example.n_tune" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Example.targ_acpt">
+<span class="sig-name descname"><span class="pre">targ_acpt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Example.targ_acpt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Files">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clr_plt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alc_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Files" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Files.alc_data">
+<span class="sig-name descname"><span class="pre">alc_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Files.alc_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Files.clr_plt">
+<span class="sig-name descname"><span class="pre">clr_plt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Files.clr_plt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.General">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">General</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_scripts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#General"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.General" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.General.main_scripts">
+<span class="sig-name descname"><span class="pre">main_scripts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.General.main_scripts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.General.n_repl">
+<span class="sig-name descname"><span class="pre">n_repl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.General.n_repl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.General.priors">
+<span class="sig-name descname"><span class="pre">priors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.General.priors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.General.save">
+<span class="sig-name descname"><span class="pre">save</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#dhs.utils.config.General.save" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.General.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.General.seed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Hyperparams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Hyperparams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spars_lev</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Hyperparams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Hyperparams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Hyperparams.conc_rate">
+<span class="sig-name descname"><span class="pre">conc_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Hyperparams.conc_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Hyperparams.spars_lev">
+<span class="sig-name descname"><span class="pre">spars_lev</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Hyperparams.spars_lev" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Paths" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.acc">
+<span class="sig-name descname"><span class="pre">acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Paths.acc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.create_directories">
+<span class="sig-name descname"><span class="pre">create_directories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/config.html#Paths.create_directories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Paths.create_directories" title="Link to this definition"></a></dt>
+<dd><p>Create the directories if they do not exist.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Paths.data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.figures">
+<span class="sig-name descname"><span class="pre">figures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Paths.figures" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.models">
+<span class="sig-name descname"><span class="pre">models</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Paths.models" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Paths.tables">
+<span class="sig-name descname"><span class="pre">tables</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Paths.tables" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Plotting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_siz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leg_mkr_siz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mkr_siz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_line_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtick_maj_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytick_maj_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtick_maj_siz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytick_maj_siz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Plotting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Plotting" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.ax_line_width">
+<span class="sig-name descname"><span class="pre">ax_line_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.ax_line_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.base_siz">
+<span class="sig-name descname"><span class="pre">base_siz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.base_siz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.font_family">
+<span class="sig-name descname"><span class="pre">font_family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.font_family" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.leg_mkr_siz">
+<span class="sig-name descname"><span class="pre">leg_mkr_siz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.leg_mkr_siz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.line_width">
+<span class="sig-name descname"><span class="pre">line_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.line_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.mkr_siz">
+<span class="sig-name descname"><span class="pre">mkr_siz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.mkr_siz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.xtick_maj_siz">
+<span class="sig-name descname"><span class="pre">xtick_maj_siz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.xtick_maj_siz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.xtick_maj_width">
+<span class="sig-name descname"><span class="pre">xtick_maj_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.xtick_maj_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.ytick_maj_siz">
+<span class="sig-name descname"><span class="pre">ytick_maj_siz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.ytick_maj_siz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Plotting.ytick_maj_width">
+<span class="sig-name descname"><span class="pre">ytick_maj_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Plotting.ytick_maj_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Simul1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spars_lev</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_stren</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Simul1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Simul1" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul1.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Simul1.dim" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul1.sig_stren">
+<span class="sig-name descname"><span class="pre">sig_stren</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Simul1.sig_stren" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul1.spars_lev">
+<span class="sig-name descname"><span class="pre">spars_lev</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Simul1.spars_lev" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.config.</span></span><span class="sig-name descname"><span class="pre">Simul2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_rel_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_corr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#Simul2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.config.Simul2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul2.feat_corr">
+<span class="sig-name descname"><span class="pre">feat_corr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Simul2.feat_corr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul2.frac_rel_vars">
+<span class="sig-name descname"><span class="pre">frac_rel_vars</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#dhs.utils.config.Simul2.frac_rel_vars" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul2.n_obs">
+<span class="sig-name descname"><span class="pre">n_obs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#dhs.utils.config.Simul2.n_obs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.config.Simul2.n_vars">
+<span class="sig-name descname"><span class="pre">n_vars</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#dhs.utils.config.Simul2.n_vars" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.create_func_dict">
+<span id="dhs-utils-create-func-dict-module"></span><h2>dhs.utils.create_func_dict module<a class="headerlink" href="#module-dhs.utils.create_func_dict" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.create_func_dict.create_func_dict">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.create_func_dict.</span></span><span class="sig-name descname"><span class="pre">create_func_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/dhs/utils/create_func_dict.html#create_func_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.create_func_dict.create_func_dict" title="Link to this definition"></a></dt>
+<dd><p>Create dictionary with summary metrics.</p>
+<p>This function creates a dictionary that contains the median and the
+standard deviation of the median for each column of a DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with pd.Series.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.create_list_comp">
+<span id="dhs-utils-create-list-comp-module"></span><h2>dhs.utils.create_list_comp module<a class="headerlink" href="#module-dhs.utils.create_list_comp" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.create_list_comp.create_list_comp">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.create_list_comp.</span></span><span class="sig-name descname"><span class="pre">create_list_comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">li</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/dhs/utils/create_list_comp.html#create_list_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.create_list_comp.create_list_comp" title="Link to this definition"></a></dt>
+<dd><p>Create list comprehension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>li</strong> (<em>list</em>) – Input list.</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – String prefix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of variables.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.logger">
+<span id="dhs-utils-logger-module"></span><h2>dhs.utils.logger module<a class="headerlink" href="#module-dhs.utils.logger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.logger.Logger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Start timing, initialize the logger and get execution time.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.logger.Logger.get_exec_time">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_exec_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">timedelta</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.get_exec_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.logger.Logger.get_exec_time" title="Link to this definition"></a></dt>
+<dd><p>Get execution time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>start_time</strong> (<em>float</em>) – Start time in seconds.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Execution time.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dt.timedelta</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.logger.Logger.get_time">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.get_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.logger.Logger.get_time" title="Link to this definition"></a></dt>
+<dd><p>Start stop watch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Relative time.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.logger.Logger.init_logger">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.init_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.logger.Logger.init_logger" title="Link to this definition"></a></dt>
+<dd><p>Initialize logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – Name of the logger. If no name is specified, return the root
+logger.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Logger with the specified name, creating it if necessary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logging.RootLogger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.marg_dens">
+<span id="dhs-utils-marg-dens-module"></span><h2>dhs.utils.marg_dens module<a class="headerlink" href="#module-dhs.utils.marg_dens" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.marg_dens.</span></span><span class="sig-name descname"><span class="pre">MargDens</span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.create_cauchy">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_cauchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_cauchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.create_cauchy" title="Link to this definition"></a></dt>
+<dd><p>Create Cauchy density.</p>
+<p>This function creates the marginal density of the Cauchy prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+<li><p><strong>seq</strong> (<em>list</em>) – Sequence (domain) of the figure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cauchy density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.create_dhs_rhs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_dhs_rhs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_rel_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_dhs_rhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.create_dhs_rhs" title="Link to this definition"></a></dt>
+<dd><p>Create Dirichlet-horseshoe or regularized horseshoe density.</p>
+<p>This function creates the marginal density of the
+Dirichlet-horseshoe prior or the regularized horseshoe prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<em>str</em>) – Kind of density (dhs or rhs).</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – Number of samples.</p></li>
+<li><p><strong>n_vars</strong> (<em>int</em>) – Number of variables.</p></li>
+<li><p><strong>n_obs</strong> (<em>int</em>) – Number of observations.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+<li><p><strong>trunc</strong> (<em>float</em>) – Truncation.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random seed.</p></li>
+<li><p><strong>spars</strong> (<em>float</em><em>, </em><em>optional</em>) – Sparsity level.</p></li>
+<li><p><strong>frac_rel_vars</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of relevant variables.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Selected density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.create_dl">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_dl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_dl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.create_dl" title="Link to this definition"></a></dt>
+<dd><p>Create Dirichlet-Laplace density.</p>
+<p>This function creates the marginal density of the
+Dirichlet-Laplace prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – Concentration rate.</p></li>
+<li><p><strong>seq_j</strong> (<em>float</em>) – Element of the sequence (domain) to be plotted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dirichlet-Laplace density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.create_hs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_hs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'upper'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_hs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.create_hs" title="Link to this definition"></a></dt>
+<dd><p>Create horseshoe density.</p>
+<p>This function creates the marginal density of the horseshoe
+prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>list</em>) – The sequence (domain) to be plotted.</p></li>
+<li><p><strong>bound</strong> (<em>str</em><em>, </em><em>default upper</em>) – Lower/upper bound.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Horseshoe density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.create_lap">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_lap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_lap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.create_lap" title="Link to this definition"></a></dt>
+<dd><p>Create Laplace density.</p>
+<p>This function creates the marginal density of the Laplace prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>list</em>) – The sequence (domain) to be plotted.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Laplace density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.marg_dens.MargDens.stock_up_dens">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stock_up_dens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.stock_up_dens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.marg_dens.MargDens.stock_up_dens" title="Link to this definition"></a></dt>
+<dd><p>Draw additional samples from prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em>) – Name (path) of file.</p></li>
+<li><p><strong>**kwargs</strong> – These parameters will be passed to the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Additional samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.mod_tex_tab">
+<span id="dhs-utils-mod-tex-tab-module"></span><h2>dhs.utils.mod_tex_tab module<a class="headerlink" href="#module-dhs.utils.mod_tex_tab" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.mod_tex_tab.mod_tex_tab">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.mod_tex_tab.</span></span><span class="sig-name descname"><span class="pre">mod_tex_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dhs/utils/mod_tex_tab.html#mod_tex_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.mod_tex_tab.mod_tex_tab" title="Link to this definition"></a></dt>
+<dd><p>Modify TeX table.</p>
+<p>Insert a midrule in a TeX table at a specific position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tab</strong> (<em>str</em>) – TeX table.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified TeX table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.num_format">
+<span id="dhs-utils-num-format-module"></span><h2>dhs.utils.num_format module<a class="headerlink" href="#module-dhs.utils.num_format" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.num_format.NumFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.num_format.</span></span><span class="sig-name descname"><span class="pre">NumFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{:.2g}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.num_format.NumFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.num_format.NumFormat.format_col">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_col"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.num_format.NumFormat.format_col" title="Link to this definition"></a></dt>
+<dd><p>Format a column of a DataFrame according to a specified format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.Series</em>) – DataFrame column to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted DataFrame column.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.num_format.NumFormat.format_num">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.num_format.NumFormat.format_num" title="Link to this definition"></a></dt>
+<dd><p>Format numbers according to the specified string operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>in_val</strong> (<em>int</em><em> | </em><em>float</em><em> | </em><em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – Input number to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted number.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float | str | bool | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.num_format.NumFormat.format_post">
+<span class="sig-name descname"><span class="pre">format_post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.num_format.NumFormat.format_post" title="Link to this definition"></a></dt>
+<dd><p>Format a column of a DataFrame according to a specified format.</p>
+<p>This function attempts to convert the input value to a numeric
+value. If the conversion is successful, it formats the value to
+have the specific format. If the conversion fails (due to a
+ValueError or TypeError), it returns the original value
+unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>_type_</em>) – Input value to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.perf_metrics">
+<span id="dhs-utils-perf-metrics-module"></span><h2>dhs.utils.perf_metrics module<a class="headerlink" href="#module-dhs.utils.perf_metrics" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.perf_metrics.PerfMetrics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.perf_metrics.</span></span><span class="sig-name descname"><span class="pre">PerfMetrics</span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.perf_metrics.PerfMetrics" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.perf_metrics.PerfMetrics.calc_avg_loss">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.perf_metrics.PerfMetrics.calc_avg_loss" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>avg_loss</strong> (<em>pandas.DataFrame</em>) – Average loss.</p></li>
+<li><p><strong>rel_avg_std_loss</strong> (<em>pandas.DataFrame</em>) – Relative average standard deviation of the loss.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.perf_metrics.PerfMetrics.calc_avg_metric">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.perf_metrics.PerfMetrics.calc_avg_metric" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average metric of interest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p></li>
+<li><p><strong>**kwargs</strong> – These parameters will be passed to the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>avg_metric</strong> – Average metric.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.perf_metrics.PerfMetrics.calc_avg_std">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.perf_metrics.PerfMetrics.calc_avg_std" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>avg_std</strong> – Average standard deviation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.plot_metrics">
+<span id="dhs-utils-plot-metrics-module"></span><h2>dhs.utils.plot_metrics module<a class="headerlink" href="#module-dhs.utils.plot_metrics" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.plot_metrics.plot_metrics">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.plot_metrics.</span></span><span class="sig-name descname"><span class="pre">plot_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/plot_metrics.html#plot_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.plot_metrics.plot_metrics" title="Link to this definition"></a></dt>
+<dd><p>Plot performance metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>priors</strong> (<em>list</em>) – List of DataFrames.</p></li>
+<li><p><strong>li_metrics</strong> (<em>list</em>) – Dataframe metrics.</p></li>
+<li><p><strong>metric_name</strong> (<em>str</em>) – Metric names.</p></li>
+<li><p><strong>x_label</strong> (<em>str</em>) – X-axis label.</p></li>
+<li><p><strong>fig_path</strong> (<em>str</em>) – Figure path.</p></li>
+<li><p><strong>fig_name</strong> (<em>str</em>) – Figure name.</p></li>
+<li><p><strong>save</strong> (<em>bool</em>) – Save object.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.plot_posteriors">
+<span id="dhs-utils-plot-posteriors-module"></span><h2>dhs.utils.plot_posteriors module<a class="headerlink" href="#module-dhs.utils.plot_posteriors" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.plot_posteriors.plot_posteriors">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.plot_posteriors.</span></span><span class="sig-name descname"><span class="pre">plot_posteriors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mdl_trace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InferenceData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li_vars_plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li_cues</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/plot_posteriors.html#plot_posteriors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.plot_posteriors.plot_posteriors" title="Link to this definition"></a></dt>
+<dd><p>Plot posterior distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mdl_trace</strong> (<em>az.InferenceData</em>) – Record of the sampling process.</p></li>
+<li><p><strong>n_states</strong> (<em>int</em>) – Number of states.</p></li>
+<li><p><strong>li_vars_plot</strong> (<em>list</em>) – List of variables to be plotted.</p></li>
+<li><p><strong>li_cues</strong> (<em>list</em>) – List of emotional cues.</p></li>
+<li><p><strong>fig_path</strong> (<em>str</em>) – Figure path.</p></li>
+<li><p><strong>fig_name</strong> (<em>str</em>) – Figure name.</p></li>
+<li><p><strong>save</strong> (<em>bool</em>) – Save objects.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.run_sampler">
+<span id="dhs-utils-run-sampler-module"></span><h2>dhs.utils.run_sampler module<a class="headerlink" href="#module-dhs.utils.run_sampler" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.run_sampler.run_sampler">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.run_sampler.</span></span><span class="sig-name descname"><span class="pre">run_sampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_draws</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tune</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targ_acpt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">InferenceData</span></span></span><a class="reference internal" href="_modules/dhs/utils/run_sampler.html#run_sampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.run_sampler.run_sampler" title="Link to this definition"></a></dt>
+<dd><p>Run the sampler.</p>
+<p>This function numerically estimates the defined PyMC model
+using Hamiltonian Monte Carlo methods (NUTS). The output
+(trace) object keeps track of the sampled values of each
+variable over the course of the sampling process and can be
+used to calculate summary statistics, to draw posterior
+distributions, and to diagnose convergence, for example.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>pm.Model</em>) – PyMC model to be estimated.</p></li>
+<li><p><strong>n_draws</strong> (<em>int</em>) – Number of draws.</p></li>
+<li><p><strong>n_tune</strong> (<em>int</em>) – Number of tuning samples (burn-in).</p></li>
+<li><p><strong>n_chains</strong> (<em>int</em>) – Number of chains.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random seed.</p></li>
+<li><p><strong>targ_acpt</strong> (<em>float</em>) – Target acceptance rate.</p></li>
+<li><p><strong>*args</strong> (<em>non-keyword arguments</em>) – Parameters specific to the trace.</p></li>
+<li><p><strong>**kwargs</strong> (<em>keyword arguments</em>) – Parameters specific to the trace.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Record of the sampling process.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>arviz.InferenceData</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils.write_text_file">
+<span id="dhs-utils-write-text-file-module"></span><h2>dhs.utils.write_text_file module<a class="headerlink" href="#module-dhs.utils.write_text_file" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.utils.write_text_file.write_text_file">
+<span class="sig-prename descclassname"><span class="pre">dhs.utils.write_text_file.</span></span><span class="sig-name descname"><span class="pre">write_text_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/write_text_file.html#write_text_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.write_text_file.write_text_file" title="Link to this definition"></a></dt>
+<dd><p>Write text to a text file.</p>
+<p>This function can be particulary useful to store TeX table code in
+a text file. For example, the first and the last line can be
+stripped to embed the file within a TeX tabular environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em>) – Name (path) of file.</p></li>
+<li><p><strong>body</strong> (<em>str</em>) – Text to write.</p></li>
+<li><p><strong>first_line</strong> (<em>int</em><em> | </em><em>None</em><em>, </em><em>default 1</em>) – First line to write.</p></li>
+<li><p><strong>last_line</strong> (<em>int</em><em> | </em><em>None</em><em>, </em><em>default -1</em>) – Last line to write.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame.to_latex</span></code></dt><dd><p>Render object to a LaTeX tabular, longtable, or nested table.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1234</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15000</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">        A      B</span>
+<span class="go">0  1.5000     -2</span>
+<span class="go">1  0.1234  15000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_text_file</span><span class="p">(</span>
+<span class="go">        file=&quot;df.tex&quot;,</span>
+<span class="go">        body=df.to_latex(),</span>
+<span class="go">        first_line=1,</span>
+<span class="go">        last_line=-1</span>
+<span class="go">    )</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-dhs.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dhs.utils" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.</span></span><span class="sig-name descname"><span class="pre">DHSConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Paths" title="dhs.utils.config.Paths"><span class="pre">dhs.utils.config.Paths</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Files" title="dhs.utils.config.Files"><span class="pre">dhs.utils.config.Files</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">general</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.General" title="dhs.utils.config.General"><span class="pre">dhs.utils.config.General</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">densities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Densities" title="dhs.utils.config.Densities"><span class="pre">dhs.utils.config.Densities</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_simul</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Simul1" title="dhs.utils.config.Simul1"><span class="pre">dhs.utils.config.Simul1</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_simul</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Simul2" title="dhs.utils.config.Simul2"><span class="pre">dhs.utils.config.Simul2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hyperparams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Hyperparams" title="dhs.utils.config.Hyperparams"><span class="pre">dhs.utils.config.Hyperparams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Estimation" title="dhs.utils.config.Estimation"><span class="pre">dhs.utils.config.Estimation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Plotting" title="dhs.utils.config.Plotting"><span class="pre">dhs.utils.config.Plotting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#dhs.utils.config.Example" title="dhs.utils.config.Example"><span class="pre">dhs.utils.config.Example</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/config.html#DHSConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.DHSConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.densities">
+<span class="sig-name descname"><span class="pre">densities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Densities" title="dhs.utils.config.Densities"><span class="pre">Densities</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.densities" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.estimation">
+<span class="sig-name descname"><span class="pre">estimation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Estimation" title="dhs.utils.config.Estimation"><span class="pre">Estimation</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.estimation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.example">
+<span class="sig-name descname"><span class="pre">example</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Example" title="dhs.utils.config.Example"><span class="pre">Example</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.example" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.files">
+<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Files" title="dhs.utils.config.Files"><span class="pre">Files</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.files" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.first_simul">
+<span class="sig-name descname"><span class="pre">first_simul</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Simul1" title="dhs.utils.config.Simul1"><span class="pre">Simul1</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.first_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.general">
+<span class="sig-name descname"><span class="pre">general</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.General" title="dhs.utils.config.General"><span class="pre">General</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.general" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.hyperparams">
+<span class="sig-name descname"><span class="pre">hyperparams</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Hyperparams" title="dhs.utils.config.Hyperparams"><span class="pre">Hyperparams</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.hyperparams" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.paths">
+<span class="sig-name descname"><span class="pre">paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Paths" title="dhs.utils.config.Paths"><span class="pre">Paths</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.paths" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.plotting">
+<span class="sig-name descname"><span class="pre">plotting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Plotting" title="dhs.utils.config.Plotting"><span class="pre">Plotting</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.plotting" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dhs.utils.DHSConfig.second_simul">
+<span class="sig-name descname"><span class="pre">second_simul</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#dhs.utils.config.Simul2" title="dhs.utils.config.Simul2"><span class="pre">Simul2</span></a></em><a class="headerlink" href="#dhs.utils.DHSConfig.second_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.Logger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Start timing, initialize the logger and get execution time.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.Logger.get_exec_time">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_exec_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">timedelta</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.get_exec_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.Logger.get_exec_time" title="Link to this definition"></a></dt>
+<dd><p>Get execution time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>start_time</strong> (<em>float</em>) – Start time in seconds.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Execution time.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dt.timedelta</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.Logger.get_time">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.get_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.Logger.get_time" title="Link to this definition"></a></dt>
+<dd><p>Start stop watch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Relative time.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.Logger.init_logger">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference internal" href="_modules/dhs/utils/logger.html#Logger.init_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.Logger.init_logger" title="Link to this definition"></a></dt>
+<dd><p>Initialize logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – Name of the logger. If no name is specified, return the root
+logger.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Logger with the specified name, creating it if necessary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logging.RootLogger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.MargDens">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.</span></span><span class="sig-name descname"><span class="pre">MargDens</span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.create_cauchy">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_cauchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_cauchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.create_cauchy" title="Link to this definition"></a></dt>
+<dd><p>Create Cauchy density.</p>
+<p>This function creates the marginal density of the Cauchy prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+<li><p><strong>seq</strong> (<em>list</em>) – Sequence (domain) of the figure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cauchy density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.create_dhs_rhs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_dhs_rhs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_rel_vars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_dhs_rhs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.create_dhs_rhs" title="Link to this definition"></a></dt>
+<dd><p>Create Dirichlet-horseshoe or regularized horseshoe density.</p>
+<p>This function creates the marginal density of the
+Dirichlet-horseshoe prior or the regularized horseshoe prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<em>str</em>) – Kind of density (dhs or rhs).</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – Number of samples.</p></li>
+<li><p><strong>n_vars</strong> (<em>int</em>) – Number of variables.</p></li>
+<li><p><strong>n_obs</strong> (<em>int</em>) – Number of observations.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+<li><p><strong>trunc</strong> (<em>float</em>) – Truncation.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random seed.</p></li>
+<li><p><strong>spars</strong> (<em>float</em><em>, </em><em>optional</em>) – Sparsity level.</p></li>
+<li><p><strong>frac_rel_vars</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of relevant variables.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Selected density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.create_dl">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_dl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_dl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.create_dl" title="Link to this definition"></a></dt>
+<dd><p>Create Dirichlet-Laplace density.</p>
+<p>This function creates the marginal density of the
+Dirichlet-Laplace prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – Concentration rate.</p></li>
+<li><p><strong>seq_j</strong> (<em>float</em>) – Element of the sequence (domain) to be plotted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dirichlet-Laplace density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.create_hs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_hs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'upper'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_hs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.create_hs" title="Link to this definition"></a></dt>
+<dd><p>Create horseshoe density.</p>
+<p>This function creates the marginal density of the horseshoe
+prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>list</em>) – The sequence (domain) to be plotted.</p></li>
+<li><p><strong>bound</strong> (<em>str</em><em>, </em><em>default upper</em>) – Lower/upper bound.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Horseshoe density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.create_lap">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_lap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.create_lap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.create_lap" title="Link to this definition"></a></dt>
+<dd><p>Create Laplace density.</p>
+<p>This function creates the marginal density of the Laplace prior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>list</em>) – The sequence (domain) to be plotted.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – Noise variance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Laplace density.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.MargDens.stock_up_dens">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stock_up_dens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/dhs/utils/marg_dens.html#MargDens.stock_up_dens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.MargDens.stock_up_dens" title="Link to this definition"></a></dt>
+<dd><p>Draw additional samples from prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em>) – Name (path) of file.</p></li>
+<li><p><strong>**kwargs</strong> – These parameters will be passed to the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Additional samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.NumFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.</span></span><span class="sig-name descname"><span class="pre">NumFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{:.2g}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.NumFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.NumFormat.format_col">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_col"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.NumFormat.format_col" title="Link to this definition"></a></dt>
+<dd><p>Format a column of a DataFrame according to a specified format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.Series</em>) – DataFrame column to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted DataFrame column.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.NumFormat.format_num">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.NumFormat.format_num" title="Link to this definition"></a></dt>
+<dd><p>Format numbers according to the specified string operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>in_val</strong> (<em>int</em><em> | </em><em>float</em><em> | </em><em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – Input number to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted number.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float | str | bool | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.NumFormat.format_post">
+<span class="sig-name descname"><span class="pre">format_post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dhs/utils/num_format.html#NumFormat.format_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.NumFormat.format_post" title="Link to this definition"></a></dt>
+<dd><p>Format a column of a DataFrame according to a specified format.</p>
+<p>This function attempts to convert the input value to a numeric
+value. If the conversion is successful, it formats the value to
+have the specific format. If the conversion fails (due to a
+ValueError or TypeError), it returns the original value
+unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>_type_</em>) – Input value to be formatted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dhs.utils.PerfMetrics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhs.utils.</span></span><span class="sig-name descname"><span class="pre">PerfMetrics</span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.PerfMetrics" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.PerfMetrics.calc_avg_loss">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.PerfMetrics.calc_avg_loss" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>avg_loss</strong> (<em>pandas.DataFrame</em>) – Average loss.</p></li>
+<li><p><strong>rel_avg_std_loss</strong> (<em>pandas.DataFrame</em>) – Relative average standard deviation of the loss.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.PerfMetrics.calc_avg_metric">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.PerfMetrics.calc_avg_metric" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average metric of interest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p></li>
+<li><p><strong>**kwargs</strong> – These parameters will be passed to the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>avg_metric</strong> – Average metric.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dhs.utils.PerfMetrics.calc_avg_std">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_avg_std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/dhs/utils/perf_metrics.html#PerfMetrics.calc_avg_std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.utils.PerfMetrics.calc_avg_std" title="Link to this definition"></a></dt>
+<dd><p>Calculate the average standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Data from which the average metric is calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>avg_std</strong> – Average standard deviation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dhs.helpers.base.html" class="btn btn-neutral float-left" title="dhs.helpers.base package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

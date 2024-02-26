@@ -1,0 +1,6 @@
+  samples: 10000 # Number of samples
+  n_obs: 100 # Number of observations
+  dim: 100 # Dimensionality
+  noise: 1 # Noise
+  trunc: 16 # Truncation
+  seq: [-15, 15, 1000] # Seqeuence to be plotted [start, stop, num]

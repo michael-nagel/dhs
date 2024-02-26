@@ -1,0 +1,18 @@
+version: 1
+
+formatters:
+  simple:
+    format: "[%(levelname)s %(asctime)s - %(message)s]"
+
+handlers: # Definition of multiple handlers is possible (e.g., console handler)
+  file_handler:
+    class: logging.FileHandler
+    formatter: simple
+    filename: "./outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}/${hydra.job.name}.log"
+    level: INFO
+
+root:
+  handlers: [file_handler]  # Add all defined handlers
+  level: INFO
+
+disable_existing_loggers: false

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dhs package &mdash; Nagel et al. 2024 Replication Package 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6efca38a"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dhs.helpers package" href="dhs.helpers.html" />
+    <link rel="prev" title="dhs" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Nagel et al. 2024 Replication Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Details:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main_modules.html">Main Moduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_objects.html">List of Tables, Figures, and Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_subpackages.html">Logic of Subpackages</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dhs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dhs package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.html">dhs.helpers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html">dhs.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.plot_marg_dens">dhs.plot_marg_dens module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.plot_marg_dens.plot_marg_dens"><code class="docutils literal notranslate"><span class="pre">plot_marg_dens()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.run_dhs_example">dhs.run_dhs_example module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.run_dhs_example.run_dhs_example"><code class="docutils literal notranslate"><span class="pre">run_dhs_example()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.run_first_simul">dhs.run_first_simul module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.run_first_simul.run_first_simul"><code class="docutils literal notranslate"><span class="pre">run_first_simul()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.run_hyperparam_sens">dhs.run_hyperparam_sens module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.run_hyperparam_sens.run_hyperparam_sens"><code class="docutils literal notranslate"><span class="pre">run_hyperparam_sens()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.run_real_data">dhs.run_real_data module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.run_real_data.run_real_data"><code class="docutils literal notranslate"><span class="pre">run_real_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs.run_second_simul">dhs.run_second_simul module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dhs.run_second_simul.run_second_simul"><code class="docutils literal notranslate"><span class="pre">run_second_simul()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-dhs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nagel et al. 2024 Replication Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">dhs</a></li>
+      <li class="breadcrumb-item active">dhs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dhs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dhs-package">
+<h1>dhs package<a class="headerlink" href="#dhs-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dhs.helpers.html">dhs.helpers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.base.html">dhs.helpers.base package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base.plot_params">dhs.helpers.base.plot_params module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base.prior_mdls">dhs.helpers.base.prior_mdls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.helpers.base.html#module-dhs.helpers.base">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#module-dhs.helpers.create_dhs">dhs.helpers.create_dhs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.html#dhs.helpers.create_dhs.create_dhs"><code class="docutils literal notranslate"><span class="pre">create_dhs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#module-dhs.helpers.create_mdl_alc_data">dhs.helpers.create_mdl_alc_data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.html#dhs.helpers.create_mdl_alc_data.create_mdl_alc_data"><code class="docutils literal notranslate"><span class="pre">create_mdl_alc_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#module-dhs.helpers.create_simuls">dhs.helpers.create_simuls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.helpers.html#dhs.helpers.create_simuls.create_simuls"><code class="docutils literal notranslate"><span class="pre">create_simuls()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.helpers.html#module-dhs.helpers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhs.utils.html">dhs.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.config">dhs.utils.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig"><code class="docutils literal notranslate"><span class="pre">DHSConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.densities"><code class="docutils literal notranslate"><span class="pre">DHSConfig.densities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.estimation"><code class="docutils literal notranslate"><span class="pre">DHSConfig.estimation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.example"><code class="docutils literal notranslate"><span class="pre">DHSConfig.example</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.files"><code class="docutils literal notranslate"><span class="pre">DHSConfig.files</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.first_simul"><code class="docutils literal notranslate"><span class="pre">DHSConfig.first_simul</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.general"><code class="docutils literal notranslate"><span class="pre">DHSConfig.general</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.hyperparams"><code class="docutils literal notranslate"><span class="pre">DHSConfig.hyperparams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.paths"><code class="docutils literal notranslate"><span class="pre">DHSConfig.paths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.plotting"><code class="docutils literal notranslate"><span class="pre">DHSConfig.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig.second_simul"><code class="docutils literal notranslate"><span class="pre">DHSConfig.second_simul</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities"><code class="docutils literal notranslate"><span class="pre">Densities</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.dim"><code class="docutils literal notranslate"><span class="pre">Densities.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.n_obs"><code class="docutils literal notranslate"><span class="pre">Densities.n_obs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.noise"><code class="docutils literal notranslate"><span class="pre">Densities.noise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.samples"><code class="docutils literal notranslate"><span class="pre">Densities.samples</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.seq"><code class="docutils literal notranslate"><span class="pre">Densities.seq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Densities.trunc"><code class="docutils literal notranslate"><span class="pre">Densities.trunc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation"><code class="docutils literal notranslate"><span class="pre">Estimation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation.hdi"><code class="docutils literal notranslate"><span class="pre">Estimation.hdi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation.n_chains"><code class="docutils literal notranslate"><span class="pre">Estimation.n_chains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation.n_draws"><code class="docutils literal notranslate"><span class="pre">Estimation.n_draws</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation.n_tune"><code class="docutils literal notranslate"><span class="pre">Estimation.n_tune</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Estimation.targ_acpt"><code class="docutils literal notranslate"><span class="pre">Estimation.targ_acpt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example"><code class="docutils literal notranslate"><span class="pre">Example</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example.hdi"><code class="docutils literal notranslate"><span class="pre">Example.hdi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example.n_chains"><code class="docutils literal notranslate"><span class="pre">Example.n_chains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example.n_draws"><code class="docutils literal notranslate"><span class="pre">Example.n_draws</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example.n_tune"><code class="docutils literal notranslate"><span class="pre">Example.n_tune</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Example.targ_acpt"><code class="docutils literal notranslate"><span class="pre">Example.targ_acpt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Files"><code class="docutils literal notranslate"><span class="pre">Files</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Files.alc_data"><code class="docutils literal notranslate"><span class="pre">Files.alc_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Files.clr_plt"><code class="docutils literal notranslate"><span class="pre">Files.clr_plt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General"><code class="docutils literal notranslate"><span class="pre">General</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General.main_scripts"><code class="docutils literal notranslate"><span class="pre">General.main_scripts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General.n_repl"><code class="docutils literal notranslate"><span class="pre">General.n_repl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General.priors"><code class="docutils literal notranslate"><span class="pre">General.priors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General.save"><code class="docutils literal notranslate"><span class="pre">General.save</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.General.seed"><code class="docutils literal notranslate"><span class="pre">General.seed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Hyperparams"><code class="docutils literal notranslate"><span class="pre">Hyperparams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Hyperparams.conc_rate"><code class="docutils literal notranslate"><span class="pre">Hyperparams.conc_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Hyperparams.spars_lev"><code class="docutils literal notranslate"><span class="pre">Hyperparams.spars_lev</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths"><code class="docutils literal notranslate"><span class="pre">Paths</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.acc"><code class="docutils literal notranslate"><span class="pre">Paths.acc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.create_directories"><code class="docutils literal notranslate"><span class="pre">Paths.create_directories()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.data"><code class="docutils literal notranslate"><span class="pre">Paths.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.figures"><code class="docutils literal notranslate"><span class="pre">Paths.figures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.models"><code class="docutils literal notranslate"><span class="pre">Paths.models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Paths.tables"><code class="docutils literal notranslate"><span class="pre">Paths.tables</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting"><code class="docutils literal notranslate"><span class="pre">Plotting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.ax_line_width"><code class="docutils literal notranslate"><span class="pre">Plotting.ax_line_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.base_siz"><code class="docutils literal notranslate"><span class="pre">Plotting.base_siz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.font_family"><code class="docutils literal notranslate"><span class="pre">Plotting.font_family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.leg_mkr_siz"><code class="docutils literal notranslate"><span class="pre">Plotting.leg_mkr_siz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.line_width"><code class="docutils literal notranslate"><span class="pre">Plotting.line_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.mkr_siz"><code class="docutils literal notranslate"><span class="pre">Plotting.mkr_siz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.xtick_maj_siz"><code class="docutils literal notranslate"><span class="pre">Plotting.xtick_maj_siz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.xtick_maj_width"><code class="docutils literal notranslate"><span class="pre">Plotting.xtick_maj_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.ytick_maj_siz"><code class="docutils literal notranslate"><span class="pre">Plotting.ytick_maj_siz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Plotting.ytick_maj_width"><code class="docutils literal notranslate"><span class="pre">Plotting.ytick_maj_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul1"><code class="docutils literal notranslate"><span class="pre">Simul1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul1.dim"><code class="docutils literal notranslate"><span class="pre">Simul1.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul1.sig_stren"><code class="docutils literal notranslate"><span class="pre">Simul1.sig_stren</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul1.spars_lev"><code class="docutils literal notranslate"><span class="pre">Simul1.spars_lev</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul2"><code class="docutils literal notranslate"><span class="pre">Simul2</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul2.feat_corr"><code class="docutils literal notranslate"><span class="pre">Simul2.feat_corr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul2.frac_rel_vars"><code class="docutils literal notranslate"><span class="pre">Simul2.frac_rel_vars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul2.n_obs"><code class="docutils literal notranslate"><span class="pre">Simul2.n_obs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.Simul2.n_vars"><code class="docutils literal notranslate"><span class="pre">Simul2.n_vars</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.create_func_dict">dhs.utils.create_func_dict module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.create_func_dict.create_func_dict"><code class="docutils literal notranslate"><span class="pre">create_func_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.create_list_comp">dhs.utils.create_list_comp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.create_list_comp.create_list_comp"><code class="docutils literal notranslate"><span class="pre">create_list_comp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.logger">dhs.utils.logger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.logger.Logger.get_exec_time"><code class="docutils literal notranslate"><span class="pre">Logger.get_exec_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.logger.Logger.get_time"><code class="docutils literal notranslate"><span class="pre">Logger.get_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.logger.Logger.init_logger"><code class="docutils literal notranslate"><span class="pre">Logger.init_logger()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.marg_dens">dhs.utils.marg_dens module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens"><code class="docutils literal notranslate"><span class="pre">MargDens</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.create_cauchy"><code class="docutils literal notranslate"><span class="pre">MargDens.create_cauchy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.create_dhs_rhs"><code class="docutils literal notranslate"><span class="pre">MargDens.create_dhs_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.create_dl"><code class="docutils literal notranslate"><span class="pre">MargDens.create_dl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.create_hs"><code class="docutils literal notranslate"><span class="pre">MargDens.create_hs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.create_lap"><code class="docutils literal notranslate"><span class="pre">MargDens.create_lap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.marg_dens.MargDens.stock_up_dens"><code class="docutils literal notranslate"><span class="pre">MargDens.stock_up_dens()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.mod_tex_tab">dhs.utils.mod_tex_tab module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.mod_tex_tab.mod_tex_tab"><code class="docutils literal notranslate"><span class="pre">mod_tex_tab()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.num_format">dhs.utils.num_format module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.num_format.NumFormat"><code class="docutils literal notranslate"><span class="pre">NumFormat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.num_format.NumFormat.format_col"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_col()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.num_format.NumFormat.format_num"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_num()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.num_format.NumFormat.format_post"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_post()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.perf_metrics">dhs.utils.perf_metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.perf_metrics.PerfMetrics"><code class="docutils literal notranslate"><span class="pre">PerfMetrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.perf_metrics.PerfMetrics.calc_avg_loss"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_loss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.perf_metrics.PerfMetrics.calc_avg_metric"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_metric()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.perf_metrics.PerfMetrics.calc_avg_std"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_std()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.plot_metrics">dhs.utils.plot_metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.plot_metrics.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.plot_posteriors">dhs.utils.plot_posteriors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.plot_posteriors.plot_posteriors"><code class="docutils literal notranslate"><span class="pre">plot_posteriors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.run_sampler">dhs.utils.run_sampler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.run_sampler.run_sampler"><code class="docutils literal notranslate"><span class="pre">run_sampler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils.write_text_file">dhs.utils.write_text_file module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.write_text_file.write_text_file"><code class="docutils literal notranslate"><span class="pre">write_text_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhs.utils.html#module-dhs.utils">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig"><code class="docutils literal notranslate"><span class="pre">DHSConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.densities"><code class="docutils literal notranslate"><span class="pre">DHSConfig.densities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.estimation"><code class="docutils literal notranslate"><span class="pre">DHSConfig.estimation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.example"><code class="docutils literal notranslate"><span class="pre">DHSConfig.example</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.files"><code class="docutils literal notranslate"><span class="pre">DHSConfig.files</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.first_simul"><code class="docutils literal notranslate"><span class="pre">DHSConfig.first_simul</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.general"><code class="docutils literal notranslate"><span class="pre">DHSConfig.general</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.hyperparams"><code class="docutils literal notranslate"><span class="pre">DHSConfig.hyperparams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.paths"><code class="docutils literal notranslate"><span class="pre">DHSConfig.paths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.plotting"><code class="docutils literal notranslate"><span class="pre">DHSConfig.plotting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.DHSConfig.second_simul"><code class="docutils literal notranslate"><span class="pre">DHSConfig.second_simul</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.Logger.get_exec_time"><code class="docutils literal notranslate"><span class="pre">Logger.get_exec_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.Logger.get_time"><code class="docutils literal notranslate"><span class="pre">Logger.get_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.Logger.init_logger"><code class="docutils literal notranslate"><span class="pre">Logger.init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens"><code class="docutils literal notranslate"><span class="pre">MargDens</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.create_cauchy"><code class="docutils literal notranslate"><span class="pre">MargDens.create_cauchy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.create_dhs_rhs"><code class="docutils literal notranslate"><span class="pre">MargDens.create_dhs_rhs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.create_dl"><code class="docutils literal notranslate"><span class="pre">MargDens.create_dl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.create_hs"><code class="docutils literal notranslate"><span class="pre">MargDens.create_hs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.create_lap"><code class="docutils literal notranslate"><span class="pre">MargDens.create_lap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.MargDens.stock_up_dens"><code class="docutils literal notranslate"><span class="pre">MargDens.stock_up_dens()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.NumFormat"><code class="docutils literal notranslate"><span class="pre">NumFormat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.NumFormat.format_col"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_col()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.NumFormat.format_num"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_num()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.NumFormat.format_post"><code class="docutils literal notranslate"><span class="pre">NumFormat.format_post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dhs.utils.html#dhs.utils.PerfMetrics"><code class="docutils literal notranslate"><span class="pre">PerfMetrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.PerfMetrics.calc_avg_loss"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_loss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.PerfMetrics.calc_avg_metric"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_metric()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dhs.utils.html#dhs.utils.PerfMetrics.calc_avg_std"><code class="docutils literal notranslate"><span class="pre">PerfMetrics.calc_avg_std()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-dhs.plot_marg_dens">
+<span id="dhs-plot-marg-dens-module"></span><h2>dhs.plot_marg_dens module<a class="headerlink" href="#module-dhs.plot_marg_dens" title="Link to this heading"></a></h2>
+<p>This script creates the marginal densities of various prior
+distributions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.plot_marg_dens.plot_marg_dens">
+<span class="sig-prename descclassname"><span class="pre">dhs.plot_marg_dens.</span></span><span class="sig-name descname"><span class="pre">plot_marg_dens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/plot_marg_dens.html#plot_marg_dens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.plot_marg_dens.plot_marg_dens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs.run_dhs_example">
+<span id="dhs-run-dhs-example-module"></span><h2>dhs.run_dhs_example module<a class="headerlink" href="#module-dhs.run_dhs_example" title="Link to this heading"></a></h2>
+<p>This script provides a general estimation example for the DHS prior.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.run_dhs_example.run_dhs_example">
+<span class="sig-prename descclassname"><span class="pre">dhs.run_dhs_example.</span></span><span class="sig-name descname"><span class="pre">run_dhs_example</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/run_dhs_example.html#run_dhs_example"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.run_dhs_example.run_dhs_example" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs.run_first_simul">
+<span id="dhs-run-first-simul-module"></span><h2>dhs.run_first_simul module<a class="headerlink" href="#module-dhs.run_first_simul" title="Link to this heading"></a></h2>
+<p>This script investigates the (finite) sample performance of the
+Dirichlet-horseshoe prior compared to other priors using a simulation
+design where one aims to estimate an D-dimensional parameter vector
+based on a single observation corrupted with iid standard normal noise
+(normal means problem).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.run_first_simul.run_first_simul">
+<span class="sig-prename descclassname"><span class="pre">dhs.run_first_simul.</span></span><span class="sig-name descname"><span class="pre">run_first_simul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/run_first_simul.html#run_first_simul"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.run_first_simul.run_first_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs.run_hyperparam_sens">
+<span id="dhs-run-hyperparam-sens-module"></span><h2>dhs.run_hyperparam_sens module<a class="headerlink" href="#module-dhs.run_hyperparam_sens" title="Link to this heading"></a></h2>
+<p>This script investigates the sensitivity of the Dirichlet-horseshoe
+prior by investigating the performance of the prior for different
+choices of hyperparameters based on the normal means problem.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.run_hyperparam_sens.run_hyperparam_sens">
+<span class="sig-prename descclassname"><span class="pre">dhs.run_hyperparam_sens.</span></span><span class="sig-name descname"><span class="pre">run_hyperparam_sens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/run_hyperparam_sens.html#run_hyperparam_sens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.run_hyperparam_sens.run_hyperparam_sens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs.run_real_data">
+<span id="dhs-run-real-data-module"></span><h2>dhs.run_real_data module<a class="headerlink" href="#module-dhs.run_real_data" title="Link to this heading"></a></h2>
+<p>This script investigates the (finite) sample performance of the
+Dirichlet-horseshoe prior compared to other priors using a real-data
+example. In this setting, we aim to estimate the effects of emotional
+cues on alcohol consumption in a soccer stadium.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.run_real_data.run_real_data">
+<span class="sig-prename descclassname"><span class="pre">dhs.run_real_data.</span></span><span class="sig-name descname"><span class="pre">run_real_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/run_real_data.html#run_real_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.run_real_data.run_real_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs.run_second_simul">
+<span id="dhs-run-second-simul-module"></span><h2>dhs.run_second_simul module<a class="headerlink" href="#module-dhs.run_second_simul" title="Link to this heading"></a></h2>
+<p>This script investigates the (finite) sample performance of the
+Dirichlet-horseshoe prior compared to other priors by simulating a
+correlated features problem. In this setting, one aims to estimate a
+D-dimensional parameter vector based on a NxK feature space corrupted
+with iid standard normal noise.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dhs.run_second_simul.run_second_simul">
+<span class="sig-prename descclassname"><span class="pre">dhs.run_second_simul.</span></span><span class="sig-name descname"><span class="pre">run_second_simul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dhs.utils.html#dhs.utils.config.DHSConfig" title="dhs.utils.config.DHSConfig"><span class="pre">DHSConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dhs/run_second_simul.html#run_second_simul"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhs.run_second_simul.run_second_simul" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dhs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dhs" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="dhs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dhs.helpers.html" class="btn btn-neutral float-right" title="dhs.helpers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Michael Nagel and Lukas Fischer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

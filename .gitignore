@@ -1,0 +1,33 @@
+# Temporary and cache files
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# IDE and editor configurations
+.vscode/
+
+# Output directories
+models/*
+reports/figures/*
+reports/tables/*
+src/dhs/conf/outputs/*
+
+# Unused and textual files
+*leftovers/
+publication/
+references/
+reports/paper/
+reports/poster/
+reports/slides/
+reports/bibliographies/
+
+# Auxiliary files
+routine_cmds.rst
+to_do.rst
+update_docs.txt
+update_env.txt
+
+# Testing and coverage reports
+.tox/
+htmlcov/
+.coverage

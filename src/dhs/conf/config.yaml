@@ -1,0 +1,79 @@
+defaults: # Entries below _self_ override the config in this file
+  - general: alt_seed
+  - densities: small_sample
+  - _self_ 
+  - override hydra/job_logging: custom
+
+paths:
+  acc: ${hydra:runtime.cwd}/../../accessories/
+  data: ${hydra:runtime.cwd}/../../data/
+  figures: ${hydra:runtime.cwd}/../../reports/figures/
+  tables: ${hydra:runtime.cwd}/../../reports/tables/
+  models: ${hydra:runtime.cwd}/../../models/
+
+files:
+  clr_plt: stata_colors.json # Color palette
+  alc_data: alc_data.pkl # Alcohol data
+
+general:
+  seed: 42
+  priors: [SPSL, BAL, HS, DL, RHS, DHS] # Prior abbreviations
+  n_repl: 100 # Number of replications
+  save: True # Save objects boolean
+  main_scripts: [
+        plot_marg_dens.py,
+        run_dhs_example.py,
+        run_first_simul.py,
+        run_hyperparam_sens.py,
+        run_real_data.py,
+        run_second_simul.py,
+    ]
+
+densities:
+  samples: 10000000 # Number of samples
+  n_obs: 100 # Number of observations
+  dim: 100 # Dimensionality
+  noise: 1 # Noise
+  trunc: 16 # Truncation
+  seq: [-15, 15, 1000] # Seqeuence to be plotted [start, stop, num]
+
+first_simul:
+  dim: 400 # Dimensionality
+  spars_lev: [5, 10] # Sparsity level (e.g., 5 implies 5%)
+  sig_stren: [4, 5, 6] # Signal strength
+
+second_simul:
+  n_obs: [80, 200] # Number of observations
+  n_vars: 100 # Number of features
+  frac_rel_vars: 0.2 # Fraction of relevant features
+  feat_corr: [0.25, 0.5, 0.75] # Features correlation
+
+hyperparams:
+  spars_lev: 5 # 5 implies 5%, for example
+  conc_rate: [0.01, 0.1, 0.5, null] # Concentration rate
+
+estimation: # Simulation study 1, simulation study 2, and real-data example
+  hdi: 0.95 # Highest density interval
+  n_chains: 3 # Number of chains
+  n_draws: 3000 # Number of draws per chain
+  n_tune: 1000 # Number of tuning steps (burn-in) per chain
+  targ_acpt: 0.99 # Acceptance probability
+
+plotting:
+  base_size: 15 # Base size of plotting objects
+  leg_mkr_size: 1 # Legend marker size
+  line_width: 1.2 # Line width
+  mkr_size: 8 # Marker size
+  ax_line_width: 0.8  # Axes line width
+  xtick_maj_width: 0.8 # Xticks major width
+  ytick_maj_width: 0.8 # Yticks major width
+  xtick_maj_size: 3.5 # Xticks major size
+  ytick_maj_size: 3.5 # Yticks major size
+  font_family: sans-serif # Font family
+
+example:
+    hdi: 0.95
+    n_chains: 4
+    n_draws: 3000
+    n_tune: 1000
+    targ_acpt: 0.9
