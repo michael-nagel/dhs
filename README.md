@@ -55,9 +55,10 @@ The setup_dhs.txt file implements the following steps
 - Activate the venv
 - Install the `dhs` package into the venv
 
-To replicate all the results, run the `__main__.py` file using the command
+To replicate all the results, run the `__main__.py` file using the commands
 
-    python -m dhs/src/dhs
+    cd dhs/src/dhs
+    python -m dhs
 
 > [!WARNING]
 > **If you install the package from the .whl or .tar.gz file**: Depending on your exact setup, it might be, that the system runs the scripts in your package installation path (e.g., `\\wsl.localhost\Ubuntu\home\username\.local\lib\python3.10\site-packages\dhs`) rather than the files in the cloned repository. In this case, you might want to delete the package in the exemplary path above to make changes to the scripts and run them.
