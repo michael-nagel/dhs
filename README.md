@@ -22,7 +22,7 @@ The code files in this replication package construct the output in Nagel et al. 
 
   | Data.Name      | Data.Files   | Location | Provided | Citation |
   | -------------- | ------------ | -------- | -------- | -------- |
-  | "Alcohol Data" | alc_data.pkl | Data/    | TRUE     |          |
+  | "Alcohol Data" | alc_data.pkl | data/    | TRUE     |          |
 
 ### Alcohol Data
 
@@ -30,7 +30,7 @@ The data used in this manuscript originates from Fischer et al. (2023, available
 
 Datafiles:
 
-- `Data/alc_data.pkl`
+- `data/alc_data.pkl`
 
 ## Dataset List
 
