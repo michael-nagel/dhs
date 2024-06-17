@@ -867,6 +867,17 @@ test = ["mock", "pytest", "pytest-asyncio (<0.23)", "pytest-cov", "pytest-lsp (>
 typecheck = ["mypy", "pytest-lsp (>=0.3.1)", "types-appdirs", "types-docutils", "types-pygments"]
 
 [[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "et_xmlfile-1.1.0-py3-none-any.whl", hash = "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada"},
+    {file = "et_xmlfile-1.1.0.tar.gz", hash = "sha256:8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c"},
+]
+
+[[package]]
 name = "etuples"
 version = "0.3.9"
 description = "Python S-expression emulation using tuple-like objects."
@@ -1910,6 +1921,20 @@ files = [
 [package.dependencies]
 antlr4-python3-runtime = "==4.9.*"
 PyYAML = ">=5.1.0"
+
+[[package]]
+name = "openpyxl"
+version = "3.1.4"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "openpyxl-3.1.4-py2.py3-none-any.whl", hash = "sha256:ec17f6483f2b8f7c88c57e5e5d3b0de0e3fb9ac70edc084d28e864f5b33bbefd"},
+    {file = "openpyxl-3.1.4.tar.gz", hash = "sha256:8d2c8adf5d20d6ce8f9bca381df86b534835e974ed0156dacefa76f68c1d69fb"},
+]
+
+[package.dependencies]
+et-xmlfile = "*"
 
 [[package]]
 name = "opt-einsum"
@@ -3236,4 +3261,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10.0"
-content-hash = "4d890eb0f585e354e467b1b8cdfd8823989052b2c3c093aaf01949d0e83763cb"
+content-hash = "dfe8c09071d3228eef0e0db7dc1e84481bd453857ad18c5b26bd47a7e0788f41"
