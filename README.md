@@ -10,7 +10,7 @@ The code files in this replication package construct the output in Nagel et al. 
 
 - [x] I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
 
-- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the [LICENSE](https://htmlpreview.github.io/?https://github.com/michael-nagel/dhs/blob/main/LICENSE) file.
+- [x] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the [LICENSE](https://htmlpreview.github.io/?https://github.com/michael-nagel/dhs/blob/main/LICENSE) file.
 
 ### Summary of Availability
 
