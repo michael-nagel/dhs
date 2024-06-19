@@ -6,7 +6,10 @@ authors = [
     "Michael Nagel <m.nagel@uni-tuebingen.de>",
     "Lukas Fischer <lukas.fischer@uni-tuebingen.de>",
 ]
-maintainers = ["Michael Nagel <m.nagel@uni-tuebingen.de>"]
+maintainers = [
+              "Michael Nagel <m.nagel@uni-tuebingen.de>",
+              "Lukas Fischer <lukas.fischer@uni-tuebingen.de>",
+]
 license = "MIT"
 readme = ["README.md", "LICENSE"]
 packages = [
